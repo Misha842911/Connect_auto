@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="FirstSuit">
+    <test name="FirstTest">
+        <classes>
+            <class name="test.java.test.test"></class>
+        </classes>
+    </test>
+</suite>
+
+<!--        mvn clean -DsuiteXmlFile=testng.xml test-->

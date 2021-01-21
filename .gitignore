@@ -1,2 +1,6 @@
 .idea/
 Connect_automation.iml
+target/
+chromedriver.exe
+logs/
+screenshot/
