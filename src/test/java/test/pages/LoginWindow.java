@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 public class LoginWindow {
     private Logger logger = LogManager.getLogger(LoginWindow.class);
@@ -20,7 +21,7 @@ public class LoginWindow {
     By closeBy = By.xpath("(*//div[@class='close'])[1]");
     By windowRightBy = By.xpath("(*//div[@class='flex_2'])[2]");
     By minimizeBy = By.xpath("(*//div[@class='minimize'])[1]");
-    String password = "Account0000";
+//    String password = "Account0000";
 
     public LoginWindow(WebDriver driver){
         this.driver = driver;
@@ -28,11 +29,11 @@ public class LoginWindow {
     }
 
     public LoginWindow enterCredentials(){
-        logger.info("Credentials were entered");
         WebElement emailField = driver.findElement(emailFieldBy);
-        emailField.sendKeys("uplaykiev34@gmail.com");
+        emailField.sendKeys(PropertyLoader.loadProperty("loginemail"));
         WebElement passwordField = driver.findElement(passwordFieldBy);
-        passwordField.sendKeys(password);
+        passwordField.sendKeys(PropertyLoader.loadProperty("password"));
+        logger.info("Credentials were entered");
         return this;
     }
 
@@ -41,7 +42,7 @@ public class LoginWindow {
         WebElement emailField = driver.findElement(emailFieldBy);
         emailField.sendKeys("uplaykiev36@gmail.com");
         WebElement passwordField = driver.findElement(passwordFieldBy);
-        passwordField.sendKeys("Account0000");
+        passwordField.sendKeys(PropertyLoader.loadProperty("password"));
         return this;
     }
 

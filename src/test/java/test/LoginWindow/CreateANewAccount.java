@@ -7,6 +7,8 @@ import test.java.test.pages.CreateAccountWindow;
 import test.java.test.pages.LoginWindow;
 import test.java.test.pages.NavWindow;
 import test.java.test.pages.NewsWindow;
+import test.java.utils.RetryAnalyzer;
+import test.java.utils.PropertyLoader;
 import test.java.utils.Screenshots;
 
 public class CreateANewAccount extends TestBaseSetup {
@@ -14,10 +16,6 @@ public class CreateANewAccount extends TestBaseSetup {
     NewsWindow newsWindow;
     CreateAccountWindow createAccountWindow;
     NavWindow navWindow;
-
-    String start = "start";
-    String uplay_News = "Uplay News";
-    String nav = "nav";
 
     @BeforeMethod
     public void pageInatialize(){
@@ -28,22 +26,23 @@ public class CreateANewAccount extends TestBaseSetup {
 
     }
 
+//    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Test
     public void createANewAccountTest() throws InterruptedException {
-        switchTo(start, 10000);
+        switchTo(PropertyLoader.loadProperty("start"), 10000);
         loginWindow.clickCreateANewAccountLink();
         createAccountWindow
                 .enterCredentialsToCreateAccount()
                 .clickContinueBtn()
                 .clickCreateAccountBtnCommunicationPreferences()
                 .clickSkipLink();
-        switchTo(uplay_News, 10000);
+        switchTo(PropertyLoader.loadProperty("uplay_News"), 10000);
         newsWindow.verifySuccessfulLogin();
-        switchTo(nav, 10000);
+        switchTo(PropertyLoader.loadProperty("nav"), 10000);
         navWindow
                 .clickUserCard()
                 .clickLogOut();
-        switchTo(start, 10000);
+        switchTo(PropertyLoader.loadProperty("start"), 10000);
     //        loginWindow.clickClose();
     }
 }

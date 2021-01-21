@@ -7,14 +7,12 @@ import test.java.test.TestBaseSetup;
 import test.java.test.pages.LoginWindow;
 import test.java.test.pages.NavWindow;
 import test.java.test.pages.NewsWindow;
+import test.java.utils.PropertyLoader;
 
 public class LoginWithRememberMe extends TestBaseSetup {
     LoginWindow loginPage;
     NewsWindow newsPage;
     NavWindow navWindow;
-    String uplay_News = "Uplay News";
-    String start = "start";
-    String nav = "nav";
 
     @BeforeMethod
     public void pageInatialize(){
@@ -25,19 +23,14 @@ public class LoginWithRememberMe extends TestBaseSetup {
 
     @Test
     public void LoginWithRememberMe() throws InterruptedException {
-        switchTo(start, 10000);
+        switchTo(PropertyLoader.loadProperty("start"), 10000);
         loginPage
                 .enterCredentialsRememberMe()
                 .clickRememberMeCheckBox()
                 .clickloginBtn();
-        switchTo(uplay_News, 10000);
+        switchTo(PropertyLoader.loadProperty("uplay_News"), 10000);
         newsPage.verifySuccessfulLogin();
-//        driver.quit();
-//        driver = null;
-//        initializeDriver();
-//        switchTo(uplay_News, 10000);
-//        newsPage.verifySuccessfulLogin();
-        switchTo(nav, 10000);
+        switchTo(PropertyLoader.loadProperty("nav"), 10000);
         navWindow.clickUserCard()
                 .clickLogOut();
 //        switchTo(start, 10000);

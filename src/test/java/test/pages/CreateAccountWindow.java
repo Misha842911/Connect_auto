@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +28,6 @@ public class CreateAccountWindow {
     By createAccountBtnCommunicationPreferencesBy = By.xpath("*//div[contains(text(), 'Create account')]");
     By skipLinkBy = By.xpath("(*//span[contains(text(), 'Skip')])[1]/..");
 
-    String password = "Account0000";
     String emailToCreate = "";
     String userNameToCreate = "";
     String dayToCreateAccVar = "1";
@@ -62,7 +62,7 @@ public class CreateAccountWindow {
 //        Thread.sleep(1000);
         emailFieldToCreateAcc.sendKeys(emailToCreate);
 //        Thread.sleep(1000);
-        passwordToCreateAcc.sendKeys(password);
+        passwordToCreateAcc.sendKeys(PropertyLoader.loadProperty("password"));
 //        Thread.sleep(1000);
         dayToCreateAcc.sendKeys(dayToCreateAccVar);
 //        Thread.sleep(1000);
