@@ -6,10 +6,10 @@
     </listeners>
     <test name="FirstTest">
         <classes>
-            <class name="test.java.test.LoginWindow.Login"/>
+            <class name="test.java.test.LoginWindow.CreateANewAccount"/>
         </classes>
     </test>
 </suite>
 
 
-<!--        mvn clean -DsuiteXmlFile=testngLoginTest.xml test-->
+        <!--        mvn clean -DsuiteXmlFile=CreateAccountTest.xml test-->

@@ -8,14 +8,13 @@ import test.java.test.TestBaseSetup;
 import test.java.test.pages.CreateAccountWindow;
 import test.java.test.pages.LoginWindow;
 import test.java.test.pages.NewsWindow;
+import test.java.utils.PropertyLoader;
+import test.java.utils.RetryAnalyzer;
 
 public class Login extends TestBaseSetup {
     LoginWindow loginWindow;
     NewsWindow newsWindow;
     CreateAccountWindow createAccountWindow;
-
-    String start = "start";
-    String uplay_News = "Uplay News";
 
     @BeforeMethod
     public void pageInatialize(){
@@ -25,19 +24,20 @@ public class Login extends TestBaseSetup {
     }
 
 
+//    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Test
     public void loginTest() throws InterruptedException {
-        switchTo(start, 10000);
+        switchTo(PropertyLoader.loadProperty("start"), 10000);
         loginWindow
                 .enterCredentials()
                 .clickloginBtn();
         try {
-            switchTo(uplay_News, 10000);
+            switchTo(PropertyLoader.loadProperty("uplay_News"), 10000);
             newsWindow.verifySuccessfulLogin();
         } catch (Exception e) {
-            switchTo(start, 10000);
+            switchTo(PropertyLoader.loadProperty("start"), 10000);
             createAccountWindow.clickSkipLink();
-            switchTo(uplay_News, 10000);
+            switchTo(PropertyLoader.loadProperty("uplay_News"), 10000);
             newsWindow.verifySuccessfulLogin();
         }
     }
