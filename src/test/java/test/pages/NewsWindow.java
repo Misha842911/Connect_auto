@@ -23,12 +23,12 @@ public class NewsWindow {
 
     public NewsWindow verifySuccessfulLogin (){
 //        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLatestNews));
-        logger.info("Client was opened successful");
         WebElement LatestNews = driver.findElement(byLatestNews);
         String LatestNewsStrExpected = "Latest News".toLowerCase();
         String LatestNewsStrActual = LatestNews.getText().toLowerCase();
 
         Assert.assertEquals(LatestNewsStrActual, LatestNewsStrExpected);
+        logger.info("Client was opened successful");
         return this;
     }
 }

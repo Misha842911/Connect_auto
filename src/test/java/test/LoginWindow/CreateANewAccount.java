@@ -43,6 +43,6 @@ public class CreateANewAccount extends TestBaseSetup {
                 .clickUserCard()
                 .clickLogOut();
         switchTo(PropertyLoader.loadProperty("start"), 10000);
-    //        loginWindow.clickClose();
+        Thread.sleep(20000);
     }
 }

@@ -7,6 +7,7 @@
     <test name="FirstTest">
         <classes>
             <class name="test.java.test.LoginWindow.CreateANewAccount"/>
+            <class name="test.java.test.WindowsProcessKiller"></class>
         </classes>
     </test>
 </suite>

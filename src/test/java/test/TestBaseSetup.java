@@ -17,6 +17,9 @@ import test.java.test.pages.CreateAccountWindow;
 import test.java.utils.Screenshots;
 
 import java.awt.dnd.InvalidDnDOperationException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Set;
 
 public class TestBaseSetup {
@@ -59,13 +62,11 @@ public class TestBaseSetup {
         }
     }
 
-    @AfterMethod
-//    public void finalizeClient(ITestResult testResult) {
-    public void finalizeClient() {
-        logger.info("Client was closed on window with title " + driver.getTitle());
 
-//        Screenshots screenshots = new Screenshots(driver);
-//        screenshots.makeScreenshot(testResult);
+    @AfterMethod
+    public void finalizeClient() {
+        logger.info("Client was closed on window with title || " + driver.getTitle());
         driver.quit();
+        WindowsProcessKiller.killProcess("upc");
     }
 }
